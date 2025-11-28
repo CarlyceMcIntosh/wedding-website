@@ -150,7 +150,9 @@ export default function EventDetailsCompact() {
             />
           </div>
         </div>
+        
       </div>
+      
     </section>
   );
 }

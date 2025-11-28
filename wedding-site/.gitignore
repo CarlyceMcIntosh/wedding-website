@@ -38,3 +38,6 @@ yarn-error.log*
 # Build outputs
 dist/
 build/
+
+#backend folder 
+/wedding-api

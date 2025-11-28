@@ -1,4 +1,4 @@
-export default function TravelStay(){
+export default function TravelStay2(){
   return(
     <section id="travel-stay" className="py-20 bg-white">
       <div className="max-w-5xl mx-auto px-6">

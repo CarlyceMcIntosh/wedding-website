@@ -39,7 +39,16 @@ export default {
         serif: ["\"Playfair Display\"", "ui-serif", "Georgia", "serif"], 
         script: ["\"Great Vibes\"", "cursive"],                          
         sans:  ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
-        cinzel: ["Cinzel", "serif"],    
+        cinzel: ["Cinzel", "serif"],   
+        luxurious: ['"Luxurious Script"', 'cursive'],
+        //cormorant: ['"Cormorant Garamond"', 'serif'],
+        cormorant: ["Cormorant", "serif"],
+        greatvibes: ["Great Vibes", "cursive"],
+        parisienne: ["Parisienne", "cursive"],
+        dancing: ["Dancing Script", "cursive"],
+        allura: ["Allura", "cursive"],
+        alexbrush: ["Alex Brush", "cursive"],
+ 
 
       },
       boxShadow: {

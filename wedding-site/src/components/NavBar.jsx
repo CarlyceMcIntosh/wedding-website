@@ -1,78 +1,100 @@
-import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { Menu, X } from "lucide-react"; // icons
 
 const NAV_ITEMS = [
-  { id: "story",   label: "OUR STORY" },
-  { id: "details", label: "EVENT DETAILS" },
-  { id: "registry",label: "REGISTRY" },
-  { id: "rsvp",    label: "RSVP" },            // route
-  { id: "travel",  label: "TRAVEL & STAY" },
-  { id: "faq",     label: "FAQ" },
+  { id: "home", label: "HOME", path: "/" },
+  { id: "venue", label: "VENUE", hash: "#venue" },
+  { id: "travel", label: "TRAVEL & STAY", hash: "#travel" },
 ];
 
-function goTo(id) {
-  // Try to find the section on the current page and scroll to it
-  const el = id && document.getElementById(id);
-  if (el) {
-    el.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-}
-
 export default function NavBar() {
-  const { pathname } = useLocation();
+  const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-ivory-100/95 backdrop-blur border-b border-sage-300">
-      <nav className="page-container h-16 flex items-center justify-center">
-        <ul className="flex gap-12">
-          {NAV_ITEMS.map((item) => {
-            // Special case: RSVP goes to its own page
-            if (item.id === "rsvp") {
-              return (
-                <li key={item.id}>
-                  <Link
-                    to="/rsvp"
-                    className="relative font-cinzel text-lg tracking-wide text-sage-600 uppercase transition hover:text-sage-600"
-                  >
-                    {item.label}
-                    <span className="absolute left-0 -bottom-1 h-[1px] w-0 bg-sage-700 transition-all duration-300 hover:w-full"></span>
-                  </Link>
-                </li>
-              );
-            }
+    <header className="fixed inset-x-0 top-0 z-50 bg-ivory-100/95 backdrop-blur border-b border-ivory-100/95">
+      <nav className="page-container h-16 flex items-center justify-between">
 
-            // All other items: smooth-scroll if we're already on Home (/)
-            if (pathname === "/") {
-              return (
-                <li key={item.id}>
-                  <button
-                    type="button"
-                    onClick={() => goTo(item.id)}
-                    className="relative font-cinzel text-lg tracking-wide text-sage-600 uppercase transition hover:text-sage-600"
-                  >
-                    {item.label}
-                    <span className="absolute left-0 -bottom-1 h-[1px] w-0 bg-sage-700 transition-all duration-300 hover:w-full"></span>
-                  </button>
-                </li>
-              );
-            }
+        {/* Logo or Site Title */}
+        <Link
+          to="/"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="font-cinzel text-2xl tracking-wide text-sage-700"
+        >
+          C & A
+        </Link>
 
-            // If we're NOT on Home (e.g., on /rsvp), link back to Home with a hash.
-            // The section will be found and scrolled after navigation thanks to default anchor behavior.
-            return (
-              <li key={item.id}>
-                <a
-                  href={`/#${item.id}`}
-                  className="relative font-cinzel text-lg tracking-wide text-sage-600 uppercase transition hover:text-sage-600"
-                >
-                  {item.label}
-                  <span className="absolute left-0 -bottom-1 h-[1px] w-0 bg-sage-700 transition-all duration-300 hover:w-full"></span>
-                </a>
-              </li>
-            );
-          })}
+
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex gap-10">
+        {NAV_ITEMS.map((item) => (
+          <li key={item.id}>
+            {item.hash ? (
+              <a
+                href={item.hash}
+                className="relative font-cinzel text-lg tracking-wide text-sage-600 uppercase transition hover:text-sage-700"
+              >
+                {item.label}
+                <span className="absolute left-0 -bottom-1 h-[1px] w-0 bg-sage-700 transition-all duration-300 hover:w-full"></span>
+              </a>
+            ) : (
+              <Link
+                to={item.path}
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                className="relative font-cinzel text-lg tracking-wide text-sage-600 uppercase transition hover:text-sage-700"
+              >
+                {item.label}
+                <span className="absolute left-0 -bottom-1 h-[1px] w-0 bg-sage-700 transition-all duration-300 hover:w-full"></span>
+              </Link>
+            )}
+          </li>
+          ))}
         </ul>
+
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden text-sage-700"
+          onClick={() => setOpen(!open)}
+        >
+          {open ? <X size={28} /> : <Menu size={28} />}
+        </button>
       </nav>
+
+      {/* Mobile Dropdown */}
+      {open && (
+        <div className="md:hidden bg-ivory-100 border-b border-sage-300">
+          <ul className="flex flex-col px-6 py-4 space-y-4">
+            {NAV_ITEMS.map((item) => (
+              <li key={item.id}>
+                {item.hash ? (
+                  <a
+                    href={item.hash}
+                    className="block text-lg font-cinzel tracking-wide text-sage-700 uppercase"
+                    onClick={() => setOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link
+                    to={item.path}
+                    className="block text-lg font-cinzel tracking-wide text-sage-700 uppercase"
+                    onClick={() => {
+                      setOpen(false);
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
+                  >
+
+                    {item.label}
+                  </Link>
+                )}
+
+
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </header>
   );
 }
-

@@ -6,6 +6,8 @@ import TravelStay from "../components/Travel&Stay";
 import Registry from "../components/Registry";
 import FAQs from "../components/FAQs";
 import Footer from "../components/Footer";
+import VenueDetails from "../components/VenueDetails";
+import TravelAndStay from "../components/TravelStay";
 
 export default function Home() {
   return (
@@ -13,13 +15,9 @@ export default function Home() {
       <NavBar />
       <main id="main" className="pt-16">
         <Hero />
-        <OurStory />
-        <EventDetails/>
-        <TravelStay/>
-        <Registry/>
-        <FAQs/>
+        <VenueDetails/>
+        <TravelAndStay />
         <Footer/>
-
       </main>
     </>
   );
