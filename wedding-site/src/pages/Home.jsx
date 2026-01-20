@@ -15,6 +15,7 @@ export default function Home() {
       <main id="main" className="pt-16">
         <Hero />
         <VenueDetails/>
+        <TravelAndStay/>
         <Footer/>
       </main>
     </>
