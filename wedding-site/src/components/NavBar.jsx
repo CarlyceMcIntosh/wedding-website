@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react"; // icons
+import { Menu, X } from "lucide-react"; 
 
 const NAV_ITEMS = [
   { id: "home", label: "HOME", path: "/" },
   { id: "venue", label: "VENUE", hash: "#venue" },
-  { id: "travel", label: "TRAVEL & STAY", hash: "#travel" },
+  { id: "travel", label: "TRAVEL & STAY", hash: "/travel&stay" },
 ];
 
 export default function NavBar() {
