@@ -6,7 +6,6 @@ import Registry from "../components/Registry";
 //import FAQs from "../components/FAQs";
 import Footer from "../components/Footer";
 import VenueDetails from "../components/VenueDetails";
-import TravelAndStay from "../components/TravelStay";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
@@ -30,7 +29,6 @@ useEffect(() => {
       <main id="main" className="pt-16">
         <Hero />
         <VenueDetails/>
-        <TravelAndStay/>
         <Footer/>
       </main>
     </>
