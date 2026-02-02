@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 
-/* ---------- Countdown (unchanged, still elegant & accurate) ---------- */
+/* ---------- Countdown ---------- */
 function CountdownText({ target }) {
   const targetMs = useMemo(() => new Date(target).getTime(), [target]);
   const [now, setNow] = useState(Date.now());
@@ -17,22 +17,22 @@ function CountdownText({ target }) {
   const d = Math.floor(diff / 86400000);
 
   return (
-  <div className="mt-6 text-ivory-50 font-cinzel uppercase drop-shadow-[0_2px_3px_rgba(0,0,0,0.35)] text-center mx-auto">
+    <div className="mt-6 text-ivory-50 font-cinzel uppercase drop-shadow-[0_2px_3px_rgba(0,0,0,0.35)] text-center mx-auto">
 
-    {/* MOBILE VERSION (stacked) */}
-    <div className="sm:hidden">
-      <p className="text-[clamp(20px,5vw,28px)] tracking-[0.18em] leading-tight">
-        {d} DAYS • {String(h).padStart(2, '0')} HRS
-      </p>
-      <p className="text-[clamp(18px,5vw,26px)] tracking-[0.18em] leading-tight mt-1">
-        {String(m).padStart(2, '0')} MIN • {String(s).padStart(2, '0')} SEC
-      </p>
-    </div>
+      {/* MOBILE VERSION (stacked) */}
+      <div className="sm:hidden">
+        <p className="text-[clamp(18px,4.5vw,24px)] tracking-[0.18em] leading-tight">
+          {d} DAYS • {String(h).padStart(2, '0')} HRS
+        </p>
+        <p className="text-[clamp(16px,4vw,22px)] tracking-[0.15em] leading-tight mt-1">
+          {String(m).padStart(2, '0')} MIN • {String(s).padStart(2, '0')} SEC
+        </p>
+      </div>
 
-    {/* DESKTOP VERSION (single line) */}
-    <p className="hidden sm:block text-[clamp(28px,2vw,42px)] tracking-[0.22em] leading-tight">
+      {/* DESKTOP VERSION (single line) */}
+      <p className="hidden sm:block text-[clamp(28px,2vw,42px)] tracking-[0.22em] leading-tight">
       {d} DAYS • {String(h).padStart(2, '0')} HRS • {String(m).padStart(2, '0')} MIN • {String(s).padStart(2, '0')} SEC
-    </p>
+      </p>
 
   </div>
 );
@@ -64,25 +64,15 @@ function Fader({ images, interval = 600, className = "", imageHeight }) {
 
   return (
     <div
-      className="
-        transition-transform 
-        duration-[1500ms] 
-        ease-[cubic-bezier(.25,.1,.25,1)]
-      "
+      className="transition-transform duration-[1500ms] ease-[cubic-bezier(.25,.1,.25,1)]"
       style={{
         transform: `rotate(${tilt * 0.7}deg)`,
       }}
     >
       {/* This wrapper gets its WIDTH from className */}
       <div
-        className={`
-          relative
-          bg-white
-          border border-[#eaeaea]
-          rounded-sm
-          shadow-[0_10px_24px_rgba(0,0,0,0.22)]
-          ${className}
-        `}
+        className={`relative bg-white border border-[#eaeaea] rounded-sm shadow-[0_10px_24px_rgba(0,0,0,0.22)]
+          ${className}`}
         style={{
           paddingTop: "14px",
           paddingLeft: "14px",
@@ -116,7 +106,7 @@ function Fader({ images, interval = 600, className = "", imageHeight }) {
   );
 }
 
-/* ---------- HERO SECTION (Full rewrite w/ cinematic polish) ---------- */
+/* ---------- HERO SECTION ---------- */
 export default function Hero() {
 
 const images = [
@@ -132,10 +122,7 @@ const images = [
   "/images/crystal-andrew-2.jpeg",
   "/images/crystal-andrew-11.jpeg",
 
-
-
 ];
-
 
   return (
  <section
@@ -150,7 +137,6 @@ const images = [
     
   "
 >
-
 
       {/* Background Image */}
       {/* <img
@@ -171,7 +157,7 @@ const images = [
 <p
   className="
     font-cinzel italic text-ivory-50
-    text-[clamp(38px,12vw,58px)]
+    text-[clamp(32px,10vw,46px)]
     tracking-[0.03em]
     drop-shadow-[0_2px_3px_rgba(0,0,0,0.35)]
     text-left mb-2
@@ -195,7 +181,7 @@ const images = [
 <p
   className="
     font-cinzel italic text-ivory-50
-    text-[clamp(38px,12vw,58px)]
+    text-[clamp(32px,10vw,46px)]
     tracking-[0.03em]
     drop-shadow-[0_2px_3px_rgba(0,0,0,0.35)]
     text-right mt-2
@@ -251,30 +237,46 @@ const images = [
     Andrew
   </h1>
 </div>
+<div
+  className="
+    mt-6
+    flex flex-col items-center
+    justify-center
+    text-ivory-50
+    drop-shadow-[0_2px_3px_rgba(0,0,0,0.35)]
+  "
+>
+  <p
+    className="
+      font-cinzel uppercase
+      text-[20px]
+      tracking-[0.24em]
+      sm:text-[clamp(18px,1.8vw,26px)]
+    "
+  >
+    August 15, 2026
+  </p>
 
+  <p
+    className="
+      mt-1
+      font-cinzel uppercase
+      text-[18px]
+      tracking-[0.32em]
+      opacity-85
+      sm:text-[clamp(16px,1.6vw,22px)]
+    "
+  >
+    Hershey, PA
+  </p>
+</div>
 
 
 
         {/* Countdown */}
-        <div className="mt-2 sm:mt-20 md:mt-28">
-
-
-
+        <div className="mt-3 sm:mt-6 md:mt-8">
           <CountdownText target="2026-08-15T16:00:00" />
         </div>
-
-        {/* Date + Location */}
-        <div className="mt-4 flex items-center justify-center gap-4 text-ivory-50/95 drop-shadow-[0_2px_3px_rgba(0,0,0,0.35)]" >
-          <span className="hidden sm:block h-px w-12 bg-ivory-50/70" />
-
-          <p className="font-cinzel uppercase text-[clamp(14px,3.2vw,22px)] tracking-[0.15em]">
-            August 15, 2026 <span className="mx-2">|</span> Hershey, PA
-          </p>
-
-          <span className="hidden sm:block h-px w-12 bg-ivory-50/70" />
-        </div>
-
-
 
 
         {/* RSVP Button

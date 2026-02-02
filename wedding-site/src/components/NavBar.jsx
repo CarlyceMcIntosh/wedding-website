@@ -6,6 +6,9 @@ const NAV_ITEMS = [
   { id: "home", label: "HOME", path: "/" },
   { id: "venue", label: "VENUE" },
   { id: "travel", label: "TRAVEL & STAY", path: "/travel-stay"},
+  { id: "qa", label: "Q + A", path: "/qa" },
+  { id: "rsvp", label: "RSVP", path: "/rsvp" },
+
 ];
 
 export default function NavBar() {

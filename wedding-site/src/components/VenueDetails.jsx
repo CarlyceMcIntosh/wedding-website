@@ -11,12 +11,28 @@ export default function VenueDetails() {
       </h2>
 
       {/* Venue Name + Address */}
-      <p className="font-cormorant text-xl md:text-xl text-sage-600 max-w-2xl leading-relaxed mb-12">
-        <span className="font-extrabold"> Weddings on Memory Lane </span> 
-        <br />
-        78 Memory Ln, Hershey, PA
-      </p>
-      {}
+      <div className="font-cormorant text-xl md:text-2xl text-sage-600 max-w-2xl leading-relaxed mb-6">
+        <div className="font-semibold">
+          Weddings on Memory Lane
+        </div>
+        <div>
+          78 Memory Ln, Hershey, PA
+        </div>
+      </div>
+      <div className="w-16 h-[1px] bg-sage-300 mx-auto my-4"></div>
+
+
+      {/* Date & Time */}
+      <div className="font-cormorant text-lg md:text-xl text-sage-700 mb-12 space-y-1">
+        <div className="font-semibold">
+          Saturday, August 15, 2026
+        </div>
+        <div className="italic">
+          4:00 PM Arrival 
+        </div>
+      </div>
+
+            {}
 
 
       {/* Map card */}

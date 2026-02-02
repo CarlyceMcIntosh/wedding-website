@@ -7,7 +7,15 @@ const FAQ_SECTIONS = [
     items: [
       {
         question: "Where will the ceremony and reception take place?",
-        answer:"Both the ceremony and reception will be held at the same location.",
+        answer: (
+          <>Both the ceremony and reception will be held at{" "}
+            <a href="https://www.google.com/maps/search/?api=1&query=Weddings+on+Memory+Lane+78+Memory+Lane+Hershey+PA" target="_blank" rel="noopener noreferrer" 
+            className="underline underline-offset-4 font-medium hover:text-sage-800 transition"
+            >
+              Weddings on Memory Lane, 78 Memory Lane, Hershey, PA
+            </a>.
+          </>
+        ),
       },
       {
         question: "What time should I arrive?",
@@ -23,8 +31,8 @@ const FAQ_SECTIONS = [
     title: "Guests & Invitations", 
     items: [
       {
-        question:"Are children welcome", 
-        answer:"While we love your little ones, this will be an adults-only celebration unless explicitly stated on your invitation that your child is invited. Thank you for understanding.",
+        question:"Are children welcome?", 
+        answer:"While we love your little ones, this will be an adults-only celebration. Thank you for understanding.",
         
       },
       {
@@ -33,7 +41,7 @@ const FAQ_SECTIONS = [
       },
       {
         question: "How do I RSVP?",
-        answer: "Please RSVP via the RSVP tab on our website by June 1st. If you have any questions or issues, feel free to email us at learmcwedding@gmail.com",
+        answer: "Please RSVP via the RSVP tab on our website by June 1st. If you have any questions or issues, feel free to email us at learmcwedding@gmail.com. (Coming soon, check back later)",
       }, 
 
 
@@ -59,7 +67,7 @@ const FAQ_SECTIONS = [
       {
         question: "Where are you registered?",
         answer:
-          "Your presence is truly the greatest gift! For those who wish to give something additional, our registry and honeymoon fund are linked on the website.",
+          "Your presence is truly the greatest gift! For those who wish to give something additional, our registry and honeymoon fund are linked on the website. (Coming soon, check back later)",
       },
     ],
   },
@@ -76,7 +84,7 @@ const FAQ_SECTIONS = [
   },
 
 ];
-export default function FAQ() {
+export default function FAQContent() {
   const [openMap, setOpenMap] = useState({});
 
   const toggle = (sectionIndex, itemIndex) => {
@@ -93,11 +101,11 @@ export default function FAQ() {
         Frequently Asked Questions
       </h2>
 
-      <div className="w-full max-w-3xl text-left space-y-16">
+      <div className="w-full max-w-3xl text-center space-y-16">
         {FAQ_SECTIONS.map((section, sectionIndex) => (
           <div key={section.title}>
             {/* Section title */}
-            <h3 className="font-cinzel text-xl md:text-2xl text-sage-600 tracking-wide mb-6">
+            <h3 className="font-cinzel text-2xl md:text-3xl text-sage-600 tracking-wide mb-8">
               {section.title}
             </h3>
 
@@ -118,14 +126,18 @@ export default function FAQ() {
                       className="
                         w-full
                         flex items-center justify-between
-                        py-6
-                        font-cormorant text-xl md:text-2xl
+                        py-7
+                        font-cormorant text-2xl md:text-3xl
                         text-sage-700
                         transition
                         hover:text-sage-800
+                        text-center
                       "
+
+
                     >
-                      <span>{faq.question}</span>
+                      <span className="flex-1 text-center" >
+                        {faq.question}</span>
                       <ChevronDown
                         className={`
                           h-5 w-5 transition-transform duration-500
@@ -137,10 +149,17 @@ export default function FAQ() {
                     <div
                       className={`
                         overflow-hidden transition-all duration-500
-                        ${isOpen ? "max-h-40" : "max-h-0"}
+                        ${isOpen ? "max-h-[500px]" : "max-h-0"}
+
                       `}
                     >
-                      <p className="pb-6 pr-8 font-cormorant text-lg text-sage-600 leading-relaxed">
+                     <p className="
+                        pb-6 px-6
+                        font-cormorant text-xl md:text-2xl
+                        text-sage-600 leading-relaxed
+                        text-center
+                      ">
+
                         {faq.answer}
                       </p>
                     </div>

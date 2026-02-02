@@ -5,15 +5,18 @@ export default function TravelAndStay() {
       className="section page-container pt-12 pb-24 text-center flex flex-col items-center">
 
       {/* Intro Text */}
-      <p className="font-cormorant text-base md:text-lg text-sage-700 max-w-3xl leading-relaxed mb-12">
+      <p className=" font-cormorant text-lg md:text-xl text-sage-700  max-w-3xl leading-relaxed  mb-14
+">
+
         For your convenience, blocks of rooms have been reserved at the following hotels.
         Please use the linked websites to access discounted rates.{" "}
-        <span className="font-semibold text-sage-900 bg-sage-100 px-1 rounded-sm">
+        <span className="font-semibold text-sage-900 bg-sage-100 px-2 py-0.5 rounded">
+
           Due to the high hotel demand during the summer season in Hershey, we strongly
           suggest booking accommodations as soon as possible.
         </span>{" "}
-        <span className="font-semibold text-sage-900 bg-sage-100 px-1 rounded-sm">
-          A booking date of July 1st is recommended.
+        <span className="font-semibold text-sage-900 bg-sage-100 px-2 py-0.5 rounded">
+          Booking by July 1st is recommended.
         </span>{" "}
          (Availability and deadlines may vary by hotel)
       </p>
@@ -24,10 +27,10 @@ export default function TravelAndStay() {
       <div className="w-24 h-[2px] bg-sage-300 mb-12 rounded-full" />
 
       {/* TWO-NIGHT STAY */}
-      <h3 className="font-cinzel uppercase tracking-[0.18em] text-lg md:text-xl text-sage-700 mb-6">
+      <h3 className="font-cinzel uppercase tracking-[0.18em] text-xl md:text-2xl text-sage-700 mb-8">
         Two-Night Stay Options (August 14–16)
       </h3>
-      <p className="font-cormorant text-base md:text-lg text-sage-700 bg-sage-100 font-medium max-w-3xl mx-auto px-4 py-3 rounded-md mb-12">
+      <p className="font-cormorant  text-lg md:text-xl text-sage-700 bg-sage-100 font-medium max-w-3xl mx-auto px-6 py-4 rounded-md mb-14">
         These hotels are located in the same area (approximately 25 minutes from the venue).
         We are hoping to organize transportation from this area to the wedding venue.
       </p>
@@ -74,7 +77,7 @@ export default function TravelAndStay() {
       <h3 className="font-cinzel uppercase tracking-[0.18em] text-lg md:text-xl text-sage-700 mb-6">
         One-Night Stay Option (August 15–16)
       </h3>
-      <p className="font-cormorant text-base md:text-lg text-sage-700 bg-sage-100 font-medium max-w-3xl mx-auto px-4 py-3 rounded-md mb-10">
+      <p className="font-cormorant  text-lg md:text-xl text-sage-700 bg-sage-100 font-medium max-w-3xl mx-auto px-6 py-4 rounded-md mb-14">
         This location is approximately 18 minutes from the venue in a different direction
         from the other hotel blocks. Transportation will likely not be available from this hotel.
       </p>
@@ -83,32 +86,30 @@ export default function TravelAndStay() {
 
 
 
-<div className="w-full max-w-md">
-  <HotelCard
-    name="Hampton Inn & Suites Mount Joy / Lancaster West"
-    address="2301 Strickler Rd, Manheim, PA"
-    dates="Aug 15–16, 2026"
-    rate="$209 / night"
-    note="Limited to approximately 20 rooms."
-    link="https://group.hamptoninn.com/i6l1gr"
-  />
-</div>
+    <div className="w-full max-w-md">
+      <HotelCard
+        name="Hampton Inn & Suites Mount Joy / Lancaster West"
+        address="2301 Strickler Rd, Manheim, PA"
+        dates="Aug 15–16, 2026"
+        rate="$209 / night"
+        note="Limited to approximately 20 rooms."
+        link="https://group.hamptoninn.com/i6l1gr"
+      />
+    </div>
 
 
-      {/* Closing Note */}
-      <p className="font-cormorant text-base md:text-lg text-sage-600 max-w-3xl leading-relaxed mt-20">
-        If you need a one-night stay and the block is full, please contact{" "}
-        <span className="font-semibold">Cindy Lear</span> at{" "}
-        <a
-          href="mailto:dclear84@yahoo.com"
-          className="underline underline-offset-2"
-        >
-          dclear84@yahoo.com
-        </a>{" "}
-        for assistance with additional room options.
-        <br /><br />
+    <p className="font-cormorant text-lg md:text-xl text-sage-600 max-w-3xl leading-relaxed mt-24 text-center">
+      If you prefer a one-night stay in the Harrisburg East area (west of the venue), or if the one-night room block becomes full, please contact{" "}
+      <span className="font-semibold">Cindy Lear</span> at{" "}
+      <a
+        href="mailto:dclear84@yahoo.com"
+        className="underline underline-offset-2"
+      >
+        dclear84@yahoo.com
+      </a>{" "}
+      for assistance with additional accommodation options.
+    </p>
 
-      </p>
     </section>
   );
 }
@@ -130,29 +131,28 @@ function HotelCard({
         flex flex-col items-center text-center
       "
     >
-      <h4 className="font-cinzel uppercase tracking-widest text-xl text-sage-700 mb-3">
+      <h4 className="font-cinzel uppercase tracking-widest text-2xl text-sage-700 mb-4">
         {name}
       </h4>
 
-      <p className="font-cormorant text-base text-sage-600">
+      <p className="font-cormorant text-lg text-sage-600">
         {address}
       </p>
 
-      <p className="font-cormorant text-base text-sage-600 mb-2">
+      <p className="font-cormorant text-lg text-sage-600 mb-2">
         {phone}
       </p>
 
-      <p className="font-cormorant italic text-base text-sage-600 mb-3">
+      <p className="font-cormorant italic text-lg text-sage-600 mb-3">
         {dates}
       </p>
 
-      {/* RATE — easy to edit later */}
-      <p className="font-cormorant text-lg text-sage-700 mb-4">
+      <p className="font-cormorant text-xl text-sage-700 mb-5">
         <span className="italic">Rate:</span> {rate}
       </p>
 
       {note && (
-        <p className="font-cormorant italic text-sm text-sage-600 mb-6">
+        <p className="font-cormorant italic text-base text-sage-600 mb-6">
           {note}
         </p>
       )}
@@ -169,7 +169,7 @@ function HotelCard({
           text-ivory-50
           font-cinzel
           tracking-widest
-          text-sm
+          text-base
           uppercase
           hover:bg-sage-700
           transition

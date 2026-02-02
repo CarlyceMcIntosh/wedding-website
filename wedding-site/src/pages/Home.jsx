@@ -1,11 +1,9 @@
 import NavBar from "../components/NavBar";
 import Hero from "../components/Hero";
-import OurStory from "../components/OurStory";
-import EventDetails from "../components/EventDetails";
-import Registry from "../components/Registry";
-//import FAQs from "../components/FAQs";
+import MiniNav from "../components/MiniNav";
 import Footer from "../components/Footer";
 import VenueDetails from "../components/VenueDetails";
+
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
@@ -29,6 +27,7 @@ useEffect(() => {
       <main id="main" className="pt-16">
         <Hero />
         <VenueDetails/>
+        <MiniNav/>
         <Footer/>
       </main>
     </>
