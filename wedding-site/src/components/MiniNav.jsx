@@ -4,6 +4,7 @@ const MINI_NAV_ITEMS = [
   { id: "home", label: "HOME", action: "home" },
   { id: "venue", label: "VENUE", action: "venue" },
   { id: "travel", label: "TRAVEL & STAY", path: "/travel-stay" },
+  { id: "qa", label: "Q + A", path: "/qa" },
   { id: "rsvp", label: "RSVP", path: "/rsvp" },
 ];
 
