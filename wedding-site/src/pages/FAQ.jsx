@@ -1,6 +1,7 @@
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import FAQContent from "../components/FAQContent";
+import FloatingRSVP from "../components/FloatingRSVP";
 
 export default function FAQ() {
   return (
@@ -10,6 +11,7 @@ export default function FAQ() {
         <FAQContent />
         <Footer />
       </main>
+      <FloatingRSVP />
     </>
   );
 }
