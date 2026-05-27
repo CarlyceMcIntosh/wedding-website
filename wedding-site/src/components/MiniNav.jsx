@@ -1,11 +1,14 @@
 import { useNavigate } from "react-router-dom";
 
+const EXTERNAL_URL = "https://withjoy.com/crystal-andrew";
+
 const MINI_NAV_ITEMS = [
-  { id: "home", label: "HOME", action: "home" },
-  { id: "venue", label: "VENUE", action: "venue" },
-  { id: "travel", label: "TRAVEL & STAY", path: "/travel-stay" },
-  { id: "qa", label: "Q + A", path: "/qa" },
-  { id: "rsvp", label: "RSVP", path: "/rsvp" },
+  { id: "home",     label: "HOME",          action: "home" },
+  { id: "rsvp",     label: "RSVP",          href: EXTERNAL_URL },
+  { id: "registry", label: "REGISTRY",      href: EXTERNAL_URL },
+  { id: "venue",    label: "VENUE",          action: "venue" },
+  { id: "travel",   label: "TRAVEL & STAY", path: "/travel-stay" },
+  { id: "qa",       label: "Q + A",         path: "/qa" },
 ];
 
 export default function MiniNav() {
@@ -41,16 +44,33 @@ export default function MiniNav() {
 
         {/* Navigation Tabs */}
         <ul className="flex flex-col items-center gap-8">
-          {MINI_NAV_ITEMS.map((item) => (
-            <li key={item.id}>
-              <button
-                onClick={() => handleClick(item)}
-                className="font-cinzel text-xl tracking-wide text-sage-700 uppercase transition hover:text-sage-900"
-              >
-                {item.label}
-              </button>
-            </li>
-          ))}
+          {MINI_NAV_ITEMS.map((item) =>
+            item.href ? (
+              <li key={item.id}>
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={
+                    item.id === "rsvp"
+                      ? "font-cinzel text-sm tracking-widest text-ivory-50 bg-sage-700 uppercase px-6 py-2 inline-block"
+                      : "font-cinzel text-xl tracking-wide text-sage-700 uppercase transition hover:text-sage-900"
+                  }
+                >
+                  {item.label}
+                </a>
+              </li>
+            ) : (
+              <li key={item.id}>
+                <button
+                  onClick={() => handleClick(item)}
+                  className="font-cinzel text-xl tracking-wide text-sage-700 uppercase transition hover:text-sage-900"
+                >
+                  {item.label}
+                </button>
+              </li>
+            )
+          )}
         </ul>
 
         {/* Bottom Divider */}
