@@ -3,6 +3,7 @@ import Hero from "../components/Hero";
 import MiniNav from "../components/MiniNav";
 import Footer from "../components/Footer";
 import VenueDetails from "../components/VenueDetails";
+import FloatingRSVP from "../components/FloatingRSVP";
 
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
@@ -30,6 +31,7 @@ useEffect(() => {
         <MiniNav/>
         <Footer/>
       </main>
+      <FloatingRSVP />
     </>
   );
 }

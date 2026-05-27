@@ -1,6 +1,7 @@
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import TravelAndStay from "../components/TravelStay";
+import FloatingRSVP from "../components/FloatingRSVP";
 
 export default function TravelStay() {
   return (
@@ -10,6 +11,7 @@ export default function TravelStay() {
         <TravelAndStay />
         <Footer/>
       </main>
+      <FloatingRSVP />
     </>
   );
 }
