@@ -1,11 +1,12 @@
 import { useNavigate } from "react-router-dom";
 
-const EXTERNAL_URL = "https://withjoy.com/crystal-andrew";
+const RSVP_URL = "https://withjoy.com/crystal-andrew";
+const REGISTRY_URL = "https://withjoy.com/crystal-andrew/registrylinks";
 
 const MINI_NAV_ITEMS = [
   { id: "home",     label: "HOME",          action: "home" },
-  { id: "rsvp",     label: "RSVP",          href: EXTERNAL_URL },
-  { id: "registry", label: "REGISTRY",      href: EXTERNAL_URL },
+  { id: "rsvp",     label: "RSVP",          href: RSVP_URL },
+  { id: "registry", label: "REGISTRY",      href: REGISTRY_URL },
   { id: "venue",    label: "VENUE",          action: "venue" },
   { id: "travel",   label: "TRAVEL & STAY", path: "/travel-stay" },
   { id: "qa",       label: "Q + A",         path: "/qa" },
