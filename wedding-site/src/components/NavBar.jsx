@@ -19,7 +19,7 @@ export default function NavBar() {
 
 const handleVenueClick = (e) => {
   e.preventDefault();
-  navigate("/?scrollTo=venue");
+  navigate("/#venue");
 };
 
 
@@ -72,9 +72,9 @@ const handleVenueClick = (e) => {
         {/* Right links + RSVP */}
         <ul className="flex gap-8 items-center justify-end">
           {[
-            { id: "registry", label: "REGISTRY", href: EXTERNAL_URL },
+            { id: "registry", label: "REGISTRY", href: REGISTRY_URL },
             { id: "qa",       label: "Q + A",    path: "/qa" },
-            { id: "rsvp",     label: "RSVP",     href: EXTERNAL_URL },
+            { id: "rsvp",     label: "RSVP",     href: RSVP_URL },
           ].map((item) =>
             item.href ? (
               <li key={item.id}>
@@ -132,9 +132,9 @@ const handleVenueClick = (e) => {
               { id: "home",     label: "HOME",          path: "/" },
               { id: "venue",    label: "VENUE",          action: "venue" },
               { id: "travel",   label: "TRAVEL & STAY", path: "/travel-stay" },
-              { id: "registry", label: "REGISTRY",      href: EXTERNAL_URL },
+              { id: "registry", label: "REGISTRY",      href: REGISTRY_URL },
               { id: "qa",       label: "Q + A",         path: "/qa" },
-              { id: "rsvp",     label: "RSVP",          href: EXTERNAL_URL },
+              { id: "rsvp",     label: "RSVP",          href: RSVP_URL },
             ].map((item) => {
               const linkClass = "font-cinzel text-lg tracking-[0.2em] text-sage-700 uppercase transition hover:text-sage-500";
               if (item.action === "venue") {

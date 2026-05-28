@@ -13,10 +13,7 @@ export default function Home() {
   const location = useLocation();
 
 useEffect(() => {
-  const params = new URLSearchParams(location.search);
-  const target = params.get("scrollTo");
-
-  if (target === "venue") {
+  if (location.hash === "#venue") {
     const section = document.getElementById("venue");
     section?.scrollIntoView({ behavior: "smooth" });
   }

@@ -22,7 +22,7 @@ export default function MiniNav() {
     }
 
     if (item.action === "venue") {
-      navigate("/?scrollTo=venue");
+      navigate("/#venue");
       return;
     }
 
