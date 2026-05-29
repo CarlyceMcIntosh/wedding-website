@@ -50,7 +50,7 @@ export default function WeddingParty() {
 
         {/* Bridesmaids */}
         <PartyGroup
-          label="Bridesmaids"
+          label="Bridal Party"
           members={bridesmaids}
           cols="sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
         />
