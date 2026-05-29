@@ -32,16 +32,15 @@ const FAQ_SECTIONS = [
     items: [
       {
         question:"Are children welcome?", 
-        answer:"While we love your little ones, this will be an adults-only celebration. Thank you for understanding.",
-        
+        answer:"While we love your little ones, due to limited capacity, we are unable to accommodate all guests' children. Thank you for understanding!",
       },
       {
         question: "Can I bring a plus one?",
-        answer: "Due to limited capacity, plus ones are only included if specifically listed on your invitation.",
+        answer: "Due to limited capacity, plus ones are only included if specifically listed on the RSVP website.",
       },
       {
         question: "How do I RSVP?",
-        answer: "Please RSVP via the RSVP tab on our website by June 1st. If you have any questions or issues, feel free to email us at learmcwedding@gmail.com. (Coming soon, check back later)",
+        answer: "Please RSVP via the RSVP tab on our website by July 1st. If you have any questions or issues, feel free to email us at learmcwedding@gmail.com.",
       }, 
 
 
@@ -56,7 +55,11 @@ const FAQ_SECTIONS = [
       },
       {
         question: "Are hotel accommodations available?",
-        answer:"Yes! Hotel accommodations and room blocks are listed above on the website. Rooms are first come, first served, and the booking deadline is July 1st.",
+        answer:"Yes! Hotel accommodations and room blocks are listed on the Travel & Stay page. Rooms are first come, first served, and the booking deadline is July 1st.",
+      },
+      {
+        question: "Is transportation included from hotel blocks?",
+        answer: "Yes, but from specific hotel blocks. Check the Travel & Stay page for specific information. Be sure to indicate whether you will need transportation on your RSVP.",
       },
     ],
   },
@@ -67,7 +70,7 @@ const FAQ_SECTIONS = [
       {
         question: "Where are you registered?",
         answer:
-          "Your presence is truly the greatest gift! For those who wish to give something additional, our registry and honeymoon fund are linked on the website. (Coming soon, check back later)",
+          "Your presence is truly the greatest gift! For those who wish to give something additional, various funds (including our honeymoon fund) are linked on the website.",
       },
     ],
   },
