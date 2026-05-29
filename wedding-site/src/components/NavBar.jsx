@@ -2,13 +2,16 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react"; 
 
-const NAV_ITEMS = [
-  { id: "home", label: "HOME", path: "/" },
-  { id: "venue", label: "VENUE" },
-  { id: "travel", label: "TRAVEL & STAY", path: "/travel-stay"},
-  { id: "qa", label: "Q + A", path: "/qa" },
-  { id: "rsvp", label: "RSVP", path: "/rsvp" },
+const RSVP_URL = "https://withjoy.com/crystal-andrew";
+const REGISTRY_URL = "https://withjoy.com/crystal-andrew/registrylinks";
 
+const NAV_ITEMS = [
+  { id: "home",     label: "HOME",          path: "/" },
+  { id: "rsvp",     label: "RSVP",          href: RSVP_URL },
+  { id: "registry", label: "REGISTRY",      href: REGISTRY_URL },
+  { id: "venue",    label: "VENUE" },
+  { id: "travel",   label: "TRAVEL & STAY", path: "/travel-stay" },
+  { id: "qa",       label: "Q + A",         path: "/qa" },
 ];
 
 export default function NavBar() {
@@ -16,7 +19,7 @@ export default function NavBar() {
 
 const handleVenueClick = (e) => {
   e.preventDefault();
-  navigate("/?scrollTo=venue");
+  navigate("/#venue");
 };
 
 
@@ -24,9 +27,87 @@ const handleVenueClick = (e) => {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 bg-ivory-100/95 backdrop-blur border-b border-ivory-100/95">
-      <nav className="page-container h-16 flex items-center justify-between">
+      {/* Desktop: 3-column grid — left links | C & A center | right links + RSVP */}
+      <nav className="page-container h-16 hidden md:grid md:grid-cols-[1fr_auto_1fr] items-center">
 
-        {/* Logo or Site Title */}
+        {/* Left links */}
+        <ul className="flex gap-8 items-center justify-start">
+          {[
+            { id: "home", label: "HOME", path: "/" },
+            { id: "venue", label: "VENUE" },
+            { id: "travel", label: "TRAVEL & STAY", path: "/travel-stay" },
+          ].map((item) =>
+            item.id === "venue" ? (
+              <li key={item.id}>
+                <button
+                  onClick={handleVenueClick}
+                  className="font-cinzel text-lg tracking-[0.18em] text-sage-600 uppercase transition hover:text-sage-800"
+                >
+                  {item.label}
+                </button>
+              </li>
+            ) : (
+              <li key={item.id}>
+                <Link
+                  to={item.path}
+                  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                  className="font-cinzel text-lg tracking-[0.18em] text-sage-600 uppercase transition hover:text-sage-800"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            )
+          )}
+        </ul>
+
+        {/* Center monogram */}
+        <Link
+          to="/"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="font-cinzel text-2xl tracking-wide text-sage-700 text-center px-8"
+        >
+          C & A
+        </Link>
+
+        {/* Right links + RSVP */}
+        <ul className="flex gap-8 items-center justify-end">
+          {[
+            { id: "registry", label: "REGISTRY", href: REGISTRY_URL },
+            { id: "qa",       label: "Q + A",    path: "/qa" },
+            { id: "rsvp",     label: "RSVP",     href: RSVP_URL },
+          ].map((item) =>
+            item.href ? (
+              <li key={item.id}>
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={
+                    item.id === "rsvp"
+                      ? "font-cinzel text-sm tracking-widest text-ivory-50 bg-sage-700 hover:bg-sage-800 uppercase px-4 py-2 transition-colors duration-200"
+                      : "font-cinzel text-lg tracking-[0.18em] text-sage-600 uppercase transition hover:text-sage-800"
+                  }
+                >
+                  {item.label}
+                </a>
+              </li>
+            ) : (
+              <li key={item.id}>
+                <Link
+                  to={item.path}
+                  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                  className="font-cinzel text-lg tracking-[0.18em] text-sage-600 uppercase transition hover:text-sage-800"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            )
+          )}
+        </ul>
+      </nav>
+
+      {/* Mobile nav: logo left, hamburger right */}
+      <nav className="page-container h-16 flex md:hidden items-center justify-between">
         <Link
           to="/"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
@@ -35,38 +116,8 @@ const handleVenueClick = (e) => {
           C & A
         </Link>
 
-
-        {/* Desktop Menu */}
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex gap-10">
-          {NAV_ITEMS.map((item) => (
-            <li key={item.id}>
-              {item.id === "venue" ? (
-                <button
-                  onClick={handleVenueClick}
-                  className="relative font-cinzel text-lg tracking-wide text-sage-600 uppercase transition hover:text-sage-700"
-                >
-                  {item.label}
-                </button>
-              ) : (
-                <Link
-                  to={item.path}
-                  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                  className="relative font-cinzel text-lg tracking-wide text-sage-600 uppercase transition hover:text-sage-700"
-                >
-                  {item.label}
-                  <span className="absolute left-0 -bottom-1 h-[1px] w-0 bg-sage-700 transition-all duration-300 hover:w-full"></span>
-                </Link>
-              )}
-            </li>
-          ))}
-        </ul>
-
-
-
-        {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-sage-700"
+          className="text-sage-700 outline-none"
           onClick={() => setOpen(!open)}
         >
           {open ? <X size={28} /> : <Menu size={28} />}
@@ -75,37 +126,57 @@ const handleVenueClick = (e) => {
 
       {/* Mobile Dropdown */}
       {open && (
-        <div className="md:hidden bg-ivory-100 border-b border-sage-300">
-          <ul className="flex flex-col px-6 py-4 space-y-4">
-            {NAV_ITEMS.map((item) => (
-              <li key={item.id}>
-                {item.id === "venue" ? (
-  <button
-    onClick={(e) => {
-      setOpen(false);
-      handleVenueClick(e);
-    }}
-    className="block text-lg font-cinzel tracking-wide text-sage-700 uppercase"
-  >
-    {item.label}
-  </button>
-) : (
-  <Link
-    to={item.path}
-    className="block text-lg font-cinzel tracking-wide text-sage-700 uppercase"
-    onClick={() => {
-      setOpen(false);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }}
-  >
-    {item.label}
-  </Link>
-)}
-
-
-
-              </li>
-            ))}
+        <div className="md:hidden bg-ivory-100 border-b border-sage-200">
+          <ul className="flex flex-col items-center py-8 space-y-6">
+            {[
+              { id: "home",     label: "HOME",          path: "/" },
+              { id: "venue",    label: "VENUE",          action: "venue" },
+              { id: "travel",   label: "TRAVEL & STAY", path: "/travel-stay" },
+              { id: "registry", label: "REGISTRY",      href: REGISTRY_URL },
+              { id: "qa",       label: "Q + A",         path: "/qa" },
+              { id: "rsvp",     label: "RSVP",          href: RSVP_URL },
+            ].map((item) => {
+              const linkClass = "font-cinzel text-lg tracking-[0.2em] text-sage-700 uppercase transition hover:text-sage-500";
+              if (item.action === "venue") {
+                return (
+                  <li key={item.id}>
+                    <button onClick={(e) => { setOpen(false); handleVenueClick(e); }} className={linkClass}>
+                      {item.label}
+                    </button>
+                  </li>
+                );
+              }
+              if (item.href) {
+                return (
+                  <li key={item.id}>
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setOpen(false)}
+                      className={
+                        item.id === "rsvp"
+                          ? "font-cinzel text-sm tracking-widest text-ivory-50 bg-sage-700 hover:bg-sage-800 uppercase px-6 py-2 transition-colors duration-200"
+                          : linkClass
+                      }
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                );
+              }
+              return (
+                <li key={item.id}>
+                  <Link
+                    to={item.path}
+                    className={linkClass}
+                    onClick={() => { setOpen(false); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
       )}

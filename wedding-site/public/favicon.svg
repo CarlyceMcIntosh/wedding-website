@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Ivory background with soft rounded corners -->
+  <rect width="32" height="32" rx="7" fill="#fff9f1"/>
+  <!-- Subtle border -->
+  <rect width="32" height="32" rx="7" fill="none" stroke="#cfe0c2" stroke-width="1.5"/>
+  <!-- C + A in italic serif, sage green -->
+  <text
+    x="16"
+    y="21.5"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-style="italic"
+    font-size="13"
+    font-weight="400"
+    fill="#56664c"
+    text-anchor="middle"
+    letter-spacing="1.5"
+  >C+A</text>
+</svg>
