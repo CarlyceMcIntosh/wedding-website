@@ -14,8 +14,8 @@ export default function Home() {
   const location = useLocation();
 
 useEffect(() => {
-  if (location.hash === "#venue") {
-    const section = document.getElementById("venue");
+  if (location.hash) {
+    const section = document.getElementById(location.hash.slice(1));
     section?.scrollIntoView({ behavior: "smooth" });
   }
 }, [location]);

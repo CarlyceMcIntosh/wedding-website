@@ -2,7 +2,7 @@ export default function TravelAndStay() {
   return (
     <section
       id="travel"
-      className="section page-container pt-12 pb-24 text-center flex flex-col items-center">
+      className="section page-container pt-12 pb-8 text-center flex flex-col items-center">
 
       {/* Intro Text */}
       <p className=" font-cormorant text-lg md:text-xl text-sage-700  max-w-3xl leading-relaxed  mb-14

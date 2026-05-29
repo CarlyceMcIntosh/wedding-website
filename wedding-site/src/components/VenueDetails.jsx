@@ -13,17 +13,15 @@ export default function VenueDetails() {
       </div>
 
       {/* Floating card */}
-      <div className="max-w-3xl mx-auto rounded-2xl overflow-hidden border border-sage-100
+      <div className="max-w-3xl lg:max-w-5xl mx-auto rounded-2xl overflow-hidden border border-sage-100
                       shadow-[0_16px_48px_rgba(0,0,0,0.10)] flex flex-col md:flex-row">
 
-        {/* Left — Map */}
-        <div className="w-full md:w-1/2 h-[240px] md:h-auto md:min-h-[420px]">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3220.5492918835344!2d-76.5762499!3d40.2304847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c8a3becfa23f6d%3A0xc5728b9858972c76!2sWeddings%20on%20Memory%20Lane!5e1!3m2!1sen!2sus!4v1763179833455!5m2!1sen!2sus"
-            className="w-full h-full border-0"
-            allowFullScreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
+        {/* Left — Venue photo */}
+        <div className="w-full md:w-1/2 h-[240px] md:h-auto md:min-h-[420px] overflow-hidden">
+          <img
+            src="/images/venue.png"
+            alt="Weddings on Memory Lane"
+            className="w-full h-full object-cover"
           />
         </div>
 

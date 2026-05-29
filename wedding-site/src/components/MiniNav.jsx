@@ -4,12 +4,13 @@ const RSVP_URL = "https://withjoy.com/crystal-andrew";
 const REGISTRY_URL = "https://withjoy.com/crystal-andrew/registrylinks";
 
 const MINI_NAV_ITEMS = [
-  { id: "home",     label: "HOME",          action: "home" },
-  { id: "rsvp",     label: "RSVP",          href: RSVP_URL },
-  { id: "registry", label: "REGISTRY",      href: REGISTRY_URL },
-  { id: "venue",    label: "VENUE",          action: "venue" },
-  { id: "travel",   label: "TRAVEL & STAY", path: "/travel-stay" },
-  { id: "qa",       label: "Q + A",         path: "/qa" },
+  { id: "home",         label: "HOME",          action: "home" },
+  { id: "rsvp",         label: "RSVP",          href: RSVP_URL },
+  { id: "registry",     label: "REGISTRY",      href: REGISTRY_URL },
+  { id: "venue",        label: "VENUE",          action: "venue" },
+  { id: "weddingparty", label: "WEDDING PARTY",  action: "weddingparty" },
+  { id: "travel",       label: "TRAVEL & STAY",  path: "/travel-stay" },
+  { id: "qa",           label: "Q + A",          path: "/qa" },
 ];
 
 export default function MiniNav() {
@@ -26,13 +27,18 @@ export default function MiniNav() {
       return;
     }
 
+    if (item.action === "weddingparty") {
+      navigate("/#wedding-party");
+      return;
+    }
+
     if (item.path) {
       navigate(item.path);
     }
   };
 
   return (
-    <section className="bg-ivory-100 py-24 md:hidden">
+    <section className="bg-ivory-100 pt-8 pb-16 md:hidden">
       <div className="page-container flex flex-col items-center">
 
         {/* Divider */}

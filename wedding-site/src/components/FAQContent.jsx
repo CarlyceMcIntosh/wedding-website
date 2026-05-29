@@ -96,7 +96,7 @@ export default function FAQContent() {
   };
 
   return (
-    <section className="section page-container pt-20 pb-24 text-center flex flex-col items-center">
+    <section className="section page-container pt-20 pb-8 text-center flex flex-col items-center">
       <h2 className="text-3xl md:text-4xl font-cinzel text-sage-600 tracking-wide mb-16">
         Frequently Asked Questions
       </h2>

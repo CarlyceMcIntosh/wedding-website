@@ -22,6 +22,11 @@ const handleVenueClick = (e) => {
   navigate("/#venue");
 };
 
+const handleWeddingPartyClick = (e) => {
+  e.preventDefault();
+  navigate("/#wedding-party");
+};
+
 
   const [open, setOpen] = useState(false);
 
@@ -129,9 +134,10 @@ const handleVenueClick = (e) => {
         <div className="md:hidden bg-ivory-100 border-b border-sage-200">
           <ul className="flex flex-col items-center py-8 space-y-6">
             {[
-              { id: "home",     label: "HOME",          path: "/" },
-              { id: "venue",    label: "VENUE",          action: "venue" },
-              { id: "travel",   label: "TRAVEL & STAY", path: "/travel-stay" },
+              { id: "home",         label: "HOME",           path: "/" },
+              { id: "venue",        label: "VENUE",          action: "venue" },
+              { id: "weddingparty", label: "WEDDING PARTY",  action: "weddingparty" },
+              { id: "travel",       label: "TRAVEL & STAY",  path: "/travel-stay" },
               { id: "registry", label: "REGISTRY",      href: REGISTRY_URL },
               { id: "qa",       label: "Q + A",         path: "/qa" },
               { id: "rsvp",     label: "RSVP",          href: RSVP_URL },
@@ -141,6 +147,15 @@ const handleVenueClick = (e) => {
                 return (
                   <li key={item.id}>
                     <button onClick={(e) => { setOpen(false); handleVenueClick(e); }} className={linkClass}>
+                      {item.label}
+                    </button>
+                  </li>
+                );
+              }
+              if (item.action === "weddingparty") {
+                return (
+                  <li key={item.id}>
+                    <button onClick={(e) => { setOpen(false); handleWeddingPartyClick(e); }} className={linkClass}>
                       {item.label}
                     </button>
                   </li>
