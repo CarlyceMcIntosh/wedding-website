@@ -24,6 +24,7 @@ function PartyGroup({ label, members, cols }) {
             image={member.image}
             variant={member.variant}
             imagePosition={member.imagePosition}
+            imageZoom={member.imageZoom}
           />
         ))}
       </div>

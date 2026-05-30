@@ -48,7 +48,7 @@ export default function VenueDetails() {
               Saturday, August 15, 2026
             </p>
             <p className="text-base italic text-sage-500">
-              4:00 PM Arrival
+              4:00 PM
             </p>
           </div>
 

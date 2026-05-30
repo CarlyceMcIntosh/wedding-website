@@ -1,4 +1,4 @@
-export default function PartyMemberCard({ name, title, image, variant, imagePosition = "center top" }) {
+export default function PartyMemberCard({ name, title, image, variant, imagePosition = "center top", imageZoom = 1 }) {
   return (
     <div className="flex flex-col items-center gap-3">
       {/* Double-ring circle */}
@@ -10,7 +10,7 @@ export default function PartyMemberCard({ name, title, image, variant, imagePosi
                 src={image}
                 alt={name}
                 className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                style={{ objectPosition: imagePosition }}
+                style={{ objectPosition: imagePosition, transform: `scale(${imageZoom})`, transformOrigin: imagePosition }}
               />
             ) : variant === "mystery" ? (
               <div className="w-full h-full bg-champagne-50 flex items-center justify-center">
