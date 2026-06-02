@@ -11,7 +11,7 @@ export const WEDDING_PARTY = [
 
   // --- Groomsmen ---
   { id: "g3", name: "David",         title: "best brother ever",          group: "groomsmen", image: "/wedding-party/david.jpeg" },
-  { id: "g8", name: "Special Guest", title: null,                         group: "groomsmen", image: null, variant: "mystery" },
+  { id: "g8", name: "William",       title: "nephew",                     group: "groomsmen", image: "/wedding-party/william.jpeg" },
   { id: "g1", name: "Josh",          title: "childhood best friend",      group: "groomsmen", image: "/wedding-party/Josh.jpeg"  },
   { id: "g2", name: "Joey",          title: "High School friend",         group: "groomsmen", image: "/wedding-party/joey.jpeg"  },
   { id: "g4", name: "Cory",          title: "soon-to-be brother-in-law",  group: "groomsmen", image: "/wedding-party/cory.jpeg"  },
