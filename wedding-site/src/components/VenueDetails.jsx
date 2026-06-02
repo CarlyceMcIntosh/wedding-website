@@ -6,6 +6,11 @@ export default function VenueDetails() {
     >
       {/* Section header */}
       <div className="flex flex-col items-center mb-10">
+        <div className="flex items-center gap-4 mb-4">
+          <div className="w-16 h-px bg-sage-300" />
+          <span className="text-sage-300 text-[8px]">◆</span>
+          <div className="w-16 h-px bg-sage-300" />
+        </div>
         <h2 className="font-cinzel text-3xl md:text-4xl text-sage-700 tracking-wide">
           Venue
         </h2>

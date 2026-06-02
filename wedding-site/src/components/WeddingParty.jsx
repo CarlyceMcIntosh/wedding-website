@@ -43,6 +43,11 @@ export default function WeddingParty() {
 
         {/* Section heading */}
         <div className="flex flex-col items-center gap-4 text-center">
+          <div className="flex items-center gap-4">
+            <div className="w-16 h-px bg-sage-300" />
+            <span className="text-sage-300 text-[8px]">◆</span>
+            <div className="w-16 h-px bg-sage-300" />
+          </div>
           <h2 className="font-cinzel text-2xl md:text-3xl lg:text-4xl text-sage-700 tracking-wide">
             Wedding Party
           </h2>
