@@ -1,7 +1,5 @@
 import { useNavigate } from "react-router-dom";
-
-const RSVP_URL = "https://withjoy.com/crystal-andrew";
-const REGISTRY_URL = "https://withjoy.com/crystal-andrew/registrylinks";
+import { isRsvpOpen, REGISTRY_URL, RSVP_URL } from "../utils/rsvpDeadline";
 
 const MINI_NAV_ITEMS = [
   { id: "home",         label: "HOME",          action: "home" },
@@ -15,6 +13,8 @@ const MINI_NAV_ITEMS = [
 
 export default function MiniNav() {
   const navigate = useNavigate();
+  const rsvpOpen = isRsvpOpen();
+  const navItems = MINI_NAV_ITEMS.filter((item) => item.id !== "rsvp" || rsvpOpen);
 
   const handleClick = (item) => {
     if (item.action === "home") {
@@ -51,7 +51,7 @@ export default function MiniNav() {
 
         {/* Navigation Tabs */}
         <ul className="flex flex-col items-center gap-8">
-          {MINI_NAV_ITEMS.map((item) =>
+          {navItems.map((item) =>
             item.href ? (
               <li key={item.id}>
                 <a

@@ -1,9 +1,11 @@
-const EXTERNAL_URL = "https://withjoy.com/crystal-andrew";
+import { isRsvpOpen, REGISTRY_URL, RSVP_URL } from "../utils/rsvpDeadline";
 
 export default function FloatingRSVP() {
+  const open = isRsvpOpen();
+
   return (
     <a
-      href={EXTERNAL_URL}
+      href={open ? RSVP_URL : REGISTRY_URL}
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-50 md:hidden
@@ -11,7 +13,7 @@ export default function FloatingRSVP() {
                  font-cinzel text-sm tracking-widest font-semibold uppercase
                  px-5 py-3 shadow-soft transition-colors duration-200"
     >
-      RSVP
+      {open ? "RSVP" : "Registry"}
     </a>
   );
 }

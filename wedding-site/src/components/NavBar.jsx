@@ -1,21 +1,11 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Menu, X } from "lucide-react"; 
-
-const RSVP_URL = "https://withjoy.com/crystal-andrew";
-const REGISTRY_URL = "https://withjoy.com/crystal-andrew/registrylinks";
-
-const NAV_ITEMS = [
-  { id: "home",     label: "HOME",          path: "/" },
-  { id: "rsvp",     label: "RSVP",          href: RSVP_URL },
-  { id: "registry", label: "REGISTRY",      href: REGISTRY_URL },
-  { id: "venue",    label: "VENUE" },
-  { id: "travel",   label: "TRAVEL & STAY", path: "/travel-stay" },
-  { id: "qa",       label: "Q + A",         path: "/qa" },
-];
+import { Menu, X } from "lucide-react";
+import { isRsvpOpen, REGISTRY_URL, RSVP_URL } from "../utils/rsvpDeadline";
 
 export default function NavBar() {
   const navigate = useNavigate();
+  const rsvpOpen = isRsvpOpen();
 
 const handleVenueClick = (e) => {
   e.preventDefault();
@@ -79,7 +69,7 @@ const handleWeddingPartyClick = (e) => {
           {[
             { id: "registry", label: "REGISTRY", href: REGISTRY_URL },
             { id: "qa",       label: "Q + A",    path: "/qa" },
-            { id: "rsvp",     label: "RSVP",     href: RSVP_URL },
+            ...(rsvpOpen ? [{ id: "rsvp", label: "RSVP", href: RSVP_URL }] : []),
           ].map((item) =>
             item.href ? (
               <li key={item.id}>
@@ -140,7 +130,7 @@ const handleWeddingPartyClick = (e) => {
               { id: "travel",       label: "TRAVEL & STAY",  path: "/travel-stay" },
               { id: "registry", label: "REGISTRY",      href: REGISTRY_URL },
               { id: "qa",       label: "Q + A",         path: "/qa" },
-              { id: "rsvp",     label: "RSVP",          href: RSVP_URL },
+              ...(rsvpOpen ? [{ id: "rsvp", label: "RSVP", href: RSVP_URL }] : []),
             ].map((item) => {
               const linkClass = "font-cinzel text-lg tracking-[0.2em] text-sage-700 uppercase transition hover:text-sage-500";
               if (item.action === "venue") {
