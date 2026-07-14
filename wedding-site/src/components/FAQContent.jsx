@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import DressCodeGuide from "./DressCodeGuide";
 
 const FAQ_SECTIONS = [
   {
@@ -23,8 +24,9 @@ const FAQ_SECTIONS = [
       },
       {
         question: "What is the dress code?",
-        answer: "Formal attire - Long dresses with heels, Suits and dress shoes. Please note that the wedding will be predominately outdoors, so we recommend dressing accordingly (block heels, etc)."
-      }, 
+        answer: <DressCodeGuide />,
+        tall: true,
+      },
     ]
   },
   {
@@ -152,19 +154,19 @@ export default function FAQContent() {
                     <div
                       className={`
                         overflow-hidden transition-all duration-500
-                        ${isOpen ? "max-h-[500px]" : "max-h-0"}
-
+                        ${isOpen ? (faq.tall ? "max-h-[5000px]" : "max-h-[500px]") : "max-h-0"}
                       `}
                     >
-                     <p className="
-                        pb-6 px-6
-                        font-cormorant text-xl md:text-2xl
-                        text-sage-600 leading-relaxed
-                        text-center
-                      ">
-
+                      <div
+                        className="
+                          pb-6 px-6
+                          font-cormorant text-xl md:text-2xl
+                          text-sage-600 leading-relaxed
+                          text-center
+                        "
+                      >
                         {faq.answer}
-                      </p>
+                      </div>
                     </div>
                   </div>
                 );

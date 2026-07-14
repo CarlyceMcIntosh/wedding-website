@@ -3,6 +3,7 @@ import Hero from "../components/Hero";
 import MiniNav from "../components/MiniNav";
 import Footer from "../components/Footer";
 import VenueDetails from "../components/VenueDetails";
+import DressCode from "../components/DressCode";
 import WeddingParty from "../components/WeddingParty";
 import FloatingRSVP from "../components/FloatingRSVP";
 
@@ -47,6 +48,7 @@ useEffect(() => {
         </div>
 
         <VenueDetails/>
+        <DressCode />
         <WeddingParty />
         <MiniNav/>
         <Footer/>

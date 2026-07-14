@@ -48,7 +48,7 @@ export default function WeddingParty() {
             <span className="text-sage-300 text-[8px]">◆</span>
             <div className="w-16 h-px bg-sage-300" />
           </div>
-          <h2 className="font-cinzel text-2xl md:text-3xl lg:text-4xl text-sage-700 tracking-wide">
+          <h2 className="font-cinzel text-3xl md:text-4xl text-sage-700 tracking-wide">
             Wedding Party
           </h2>
           <div className="w-16 h-px bg-sage-300" />
