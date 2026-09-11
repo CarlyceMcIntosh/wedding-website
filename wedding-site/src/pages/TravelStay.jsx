@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import TravelAndStay from "../components/TravelStay";
 import MiniNav from "../components/MiniNav";
 import FloatingRSVP from "../components/FloatingRSVP";
+import TransportationModal from "../components/TransportationModal";
 
 export default function TravelStay() {
   return (
@@ -14,6 +15,7 @@ export default function TravelStay() {
         <Footer/>
       </main>
       <FloatingRSVP />
+      <TransportationModal />
     </>
   );
 }
